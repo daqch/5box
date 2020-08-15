@@ -3,25 +3,15 @@
   width: 72pt;
   height: 72pt;
   border: 2px solid black;
+  transition-duration: 0.5s;
 }
 
-.box.top {
-  margin-left: 33pt;
-}
 .container {
   text-align: center;
-  width: 100%;
-  height: 100%;
+  height: 80%;
   width: 50%;
   margin: 0 auto;
-}
-.centerwrapper {
-  margin: auto;
-  width: 80%;
-}
-
-.box.top.on {
-  background-color: blue;
+  min-height: 100vh;
 }
 
 .row {
@@ -30,6 +20,33 @@
   justify-content: center;
 }
 
+body {
+  background: linear-gradient(
+    to bottom,
+    #5d9634,
+    #5d9634 50%,
+    #538c2b 50%,
+    #538c2b
+  );
+  /* The rectangle in which to repeat. 
+     It can be fully wide in this case */
+  background-size: 100% 20px;
+}
+
 .box.on {
   background-color: yellow;
+}
+
+.box.off {
+  background-color: grey;
+}
+
+.board {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 50%; /*requires explicit height*/
 }
