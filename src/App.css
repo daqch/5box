@@ -1,9 +1,9 @@
 .box {
-  margin: 1pt;
-  width: 72pt;
-  height: 72pt;
-  border: 2px solid black;
-  transition-duration: 0.5s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.5s ease-out;
+  height: 10em;
+  width: 10em;
+  border: 1px solid black;
 }
 
 .container {
@@ -21,24 +21,18 @@
 }
 
 body {
-  background: linear-gradient(
-    to bottom,
-    #5d9634,
-    #5d9634 50%,
-    #538c2b 50%,
-    #538c2b
-  );
-  /* The rectangle in which to repeat. 
-     It can be fully wide in this case */
+  background: rgb(26, 27, 27);
   background-size: 100% 20px;
+  color: rgb(245, 245, 245);
+  font-family: "Courier Prime", monospace;
 }
 
 .box.on {
-  background-color: yellow;
+  background-color: rgb(71, 118, 180);
 }
 
 .box.off {
-  background-color: grey;
+  background-color: rgb(83, 81, 81);
 }
 
 .board {
@@ -48,5 +42,41 @@ body {
   left: 0;
   right: 0;
   margin: auto;
-  height: 50%; /*requires explicit height*/
+  height: 50%;
+}
+
+.Aligner {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.won {
+  color: rgb(222, 224, 65);
+  animation-name: zoomin;
+  animation-duration: 0.4s;
+  animation-iteration-count: infinite;
+}
+
+button {
+  width: 280px;
+  height: 80px;
+  background: #cf5555;
+  border-radius: 40px;
+  padding: 0 50px;
+  overflow: hidden;
+  cursor: pointer;
+  margin-top: 2em;
+  border: 1px solid black;
+}
+
+@keyframes zoomin {
+  0% {
+    transform: scale(0.9);
+  }
+  50%,
+  100% {
+    transform: scale(1);
+  }
 }

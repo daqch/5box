@@ -4,6 +4,7 @@ import "./App.css";
 
 function App() {
   const [tiles, setTiles] = useState<Array<Number>>([0, 0, 0, 0, 0]);
+  const [win, setWin] = useState<boolean>(false);
 
   const adj_matrix = [
     [1, 2, 3],
@@ -21,8 +22,6 @@ function App() {
     console.log(index);
 
     if (index !== null) {
-      console.log("###");
-
       let items = [...tiles];
 
       let item = tiles[index];
@@ -54,9 +53,11 @@ function App() {
       }) &&
       tiles.length != 0
     ) {
-      alert("You won!!");
+      setWin(true);
+    } else {
+      setWin(false);
     }
-  });
+  }, [tiles]);
 
   const init = () => {
     const candidate = Array.from({ length: 5 }, () =>
@@ -72,22 +73,25 @@ function App() {
     }
 
     setTiles(candidate);
-  };
-
-  const check = () => {
-    console.log(tiles);
+    setWin(false);
   };
 
   return (
     <Fragment>
       <div className="container">
         <div className="board">
-          <Board tiles={tiles} onClick={onClick} />
-          <button onClick={init}>Restart</button>
+          {win ? (
+            <h1 className="won">Great!</h1>
+          ) : (
+            <h1>Turn all the tiles blue!</h1>
+          )}
+          <Board onClick={onClick} tiles={tiles}></Board>
+          <button className="big-button" onClick={init}>
+            <h3>Restart</h3>
+          </button>
         </div>
       </div>
     </Fragment>
   );
 }
-
 export default App;
